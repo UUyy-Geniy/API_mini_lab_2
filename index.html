@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Hello</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -56,13 +56,13 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validation password">
+          <input id="password" type="password" class="valid">
           <label for="password">Password</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password-repeat" type="password" class="validation password">
+          <input id="password-repeat" type="password" class="valid">
           <label for="password-repeat">Repeat password</label>
         </div>
       </div>
@@ -78,10 +78,31 @@
       <div class="underlined_text col s5" id="sign_in_link"> Sign in! </div>
     </div>
   </div>
-  <div class="form_container row" id="sign_in_form" style="display: none"> Place sign in form here </div>
+  <div class="form_container row" id="sign_in_form" style="display: none"> Place sign in form here
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="sign_in_email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="sign_in_password" type="password" class="valid">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn waves-effect waves-light col s4 offset-s4" type="submit" id="sign_in_sign_up_btn">
+          Sign up
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </form>
+  </div>
   <script src="https://www.google-analytics.com/analytics.js" async></script>
   <script type="module" src="js/main.js"></script>
 </div>
-</body>
 
+</body>
 </html>
