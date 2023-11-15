@@ -7,6 +7,10 @@ export const validatePassword = (e) => {
   return String(e).match(passwordRegex);
 }
 
+export const validateName = (e) =>{
+  return String(e).length>0;
+}
+
 export const validateRepPassword = (e) => {
   return e===formValues.password;
 }
@@ -20,14 +24,21 @@ export const getValidationStatus = () => {
   return Object.values(formValidation).every((validationStatus) => !!validationStatus)
 }
 
+export const setDisabledBtn = (btn, form_id) =>{
+  const inputs = document.querySelectorAll(`#${form_id} input`);
+  if (Array.from(inputs).every((input) => input.value.trim() !== "") && getValidationStatus()){
+      btn.disabled = false;
+  }
+  else{
+    btn.disabled = true;
+  }
+}
 
-// Функция возвращающая которая ставит значение поля в форме по ключу
 export const setFormValue = (valueKey, target, validator) => {
   formValues[valueKey] = target.value
   if (validator !== undefined) {
     const isValid = validator(target.value)
     if (!isValid){
-      target.classList.remove('valid')
       target.classList.add('invalid')
     }
     else{
@@ -38,10 +49,17 @@ export const setFormValue = (valueKey, target, validator) => {
   }
 }
 
-
-// Функция для обработки отправки формы регистрации
-// В этой функции должен быть http запрос на сервер для регистрации пользователя (сейчас просто демонстрация)
 export const submitSignUpForm = () => {
+  if (!getValidationStatus()) {
+    console.log("FORM IS INCORRECT")
+    return false
+  }
+  console.log("FORM IS FINE")
+  console.log(formValues)
+  return true
+}
+
+export const submitSignInForm = () => {
   if (!getValidationStatus()) {
     console.log("FORM IS INCORRECT")
     return false
